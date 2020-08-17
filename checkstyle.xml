@@ -4,40 +4,23 @@
         "https://checkstyle.org/dtds/configuration_1_3.dtd">
 
 <module name="Checker">
-    <!--
-        If you set the basedir property below, then all reported file
-        names will be relative to the specified directory. See
-        https://checkstyle.org/5.x/config.html#Checker
-
-        <property name="basedir" value="${basedir}"/>
-    -->
 
     <property name="fileExtensions" value="java, properties, xml"/>
 
-    <!-- Excludes all 'module-info.java' files              -->
     <!-- See https://checkstyle.org/config_filefilters.html -->
     <module name="BeforeExecutionExclusionFileFilter">
         <property name="fileNamePattern" value="module\-info\.java$"/>
     </module>
 
-    <!-- Checks whether files end with a new line.                        -->
-    <!-- See https://checkstyle.org/config_misc.html#NewlineAtEndOfFile -->
-    <module name="NewlineAtEndOfFile"/>
-
-    <!-- Checks that property files contain the same keys.         -->
-    <!-- See https://checkstyle.org/config_misc.html#Translation -->
-    <module name="Translation"/>
-
-    <!-- Checks for Size Violations.                    -->
     <!-- See https://checkstyle.org/config_sizes.html -->
     <module name="FileLength"/>
 
-    <!-- Checks for whitespace                               -->
     <!-- See https://checkstyle.org/config_whitespace.html -->
     <module name="FileTabCharacter"/>
 
-    <!-- Miscellaneous other checks.                   -->
     <!-- See https://checkstyle.org/config_misc.html -->
+    <module name="NewlineAtEndOfFile"/>
+    <module name="Translation"/>
     <module name="RegexpSingleline">
         <property name="format" value="\s+$"/>
         <property name="minimum" value="0"/>
@@ -45,7 +28,6 @@
         <property name="message" value="Line has trailing spaces."/>
     </module>
 
-    <!-- Checks for Headers                                -->
     <!-- See https://checkstyle.org/config_header.html   -->
     <!-- <module name="Header"> -->
     <!--   <property name="headerFile" value="${checkstyle.header.file}"/> -->
@@ -53,17 +35,15 @@
     <!-- </module> -->
 
     <module name="TreeWalker">
-        <!-- Checks for Javadoc comments.                     -->
         <!-- See https://checkstyle.org/config_javadoc.html -->
         <!--<module name="InvalidJavadocPosition"/>-->
         <module name="JavadocStyle">
             <property name="checkFirstSentence" value="false"/>
         </module>
 
-        <!-- Checks for Naming Conventions.                  -->
         <!-- See https://checkstyle.org/config_naming.html -->
         <module name="AbbreviationAsWordInName">
-            <property name="allowedAbbreviations" value="{KiB, MiB, GiB, TiB}"/>
+            <property name="allowedAbbreviations" value="{KiB, MiB, GiB, TiB, SQLXML, setSQLXML}"/>
         </module>
         <module name="ConstantName">
             <property name="format" value="^KiB?$|^MiB?$|^GiB?$|^TiB?$|^log?$|^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$"/>
@@ -77,15 +57,13 @@
         <module name="StaticVariableName"/>
         <module name="TypeName"/>
 
-        <!-- Checks for imports                              -->
         <!-- See https://checkstyle.org/config_import.html -->
-        <module name="IllegalImport"/> <!-- defaults to sun.* packages -->
+        <module name="IllegalImport"/>
         <module name="RedundantImport"/>
         <module name="UnusedImports">
             <property name="processJavadoc" value="true"/>
         </module>
 
-        <!-- Checks for Size Violations.                    -->
         <!-- See https://checkstyle.org/config_sizes.html -->
         <module name="LineLength">
             <property name="max" value="120"/>
@@ -98,7 +76,6 @@
             <property name="tokens" value="METHOD_DEF"/>
         </module>
 
-        <!-- Checks for whitespace                               -->
         <!-- See https://checkstyle.org/config_whitespace.html -->
         <module name="EmptyForIteratorPad"/>
         <module name="GenericWhitespace"/>
@@ -130,12 +107,10 @@
         <!--<module name="WhitespaceAround"/>-->
 
 
-        <!-- Modifier Checks                                    -->
         <!-- See https://checkstyle.org/config_modifiers.html -->
         <module name="ModifierOrder"/>
 
-        <!--&lt;!&ndash; Checks for blocks. You know, those {}'s         &ndash;&gt;-->
-        <!--&lt;!&ndash; See https://checkstyle.org/config_blocks.html &ndash;&gt;-->
+        <!-- See https://checkstyle.org/config_blocks.html -->
         <module name="AvoidNestedBlocks"/>
         <module name="EmptyBlock"/>
         <module name="EmptyCatchBlock"/>
@@ -143,7 +118,6 @@
         <module name="NeedBraces"/>
         <module name="RightCurly"/>
 
-        <!-- Checks for common coding problems               -->
         <!-- See https://checkstyle.org/config_coding.html -->
         <module name="EmptyStatement"/>
         <module name="EqualsHashCode"/>
@@ -168,19 +142,13 @@
         <module name="StringLiteralEquality"/>
         <module name="UnnecessaryParentheses"/>
 
-        <!-- Checks for class design                         -->
         <!-- See https://checkstyle.org/config_design.html -->
-        <!--<module name="DesignForExtension"/>-->
-        <!--<module name="FinalClass"/>-->
-        <!--<module name="HideUtilityClassConstructor"/>-->
-        <!--<module name="InterfaceIsType"/>-->
-        <!--<module name="VisibilityModifier"/>-->
+        <module name="VisibilityModifier"/>
 
-        <!--&lt;!&ndash; Miscellaneous other checks.                   &ndash;&gt;-->
-        <!--&lt;!&ndash; See https://checkstyle.org/config_misc.html &ndash;&gt;-->
-        <!--<module name="ArrayTypeStyle"/>-->
-        <!--<module name="FinalParameters"/>-->
-        <!--<module name="TodoComment"/>-->
+        <!-- See https://checkstyle.org/config_misc.html -->
+        <module name="ArrayTypeStyle"/>
+        <module name="CommentsIndentation"/>
+        <module name="TrailingComment"/>
         <!--<module name="UpperEll"/>-->
 
     </module>

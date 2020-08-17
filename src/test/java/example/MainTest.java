@@ -1,12 +1,15 @@
 package example;
 
+import lombok.extern.slf4j.*;
+
 import org.junit.*;
 
+@Slf4j
 public class MainTest {
 
     @Test
     public void foo() {
-        System.out.println("Test me, fix me!!!");
+        log.error("Test me, fix me!!!");
     }
 
 }
