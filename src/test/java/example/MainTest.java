@@ -9,7 +9,7 @@ public class MainTest {
 
     @Test
     public void foo() {
-        log.error("Test me, fix me!!!");
+
     }
 
 }
